@@ -1,7 +1,16 @@
-<div class="container">
-  <%= link_to 'Create a list', new_list_path, class:'btn btn-flat' %>
-  <% @lists.each do |list| %>
-    <%= list.name %>
-    <%= link_to 'Details', list_path(list) %>
-  <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'banner.jpg'%>);">
+  <div class="container">
+    <h1 class="text-center">Save <strong>any</strong> kind of movies!</h1>
+    <p class="text-center">Classic Le Wagon 2023</p>
+  </div>
+</div>
+<div class="container mt-3" style="">
+  <h3>My lists</h3>
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+        <%= link_to list.name, list_path(list) %>
+      </div>
+    <% end %>
+  </div>
 </div>
