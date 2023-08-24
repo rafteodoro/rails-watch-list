@@ -1,0 +1,8 @@
+<div class="container">
+  <h5>New List</h5>
+  <%= simple_form_for(@list) do |form| %>
+    <%= form.input :name %>
+    <%= link_to 'Back', lists_path, class:'btn btn-ghost' %>
+    <%= form.button :submit, class:'btn btn-flat' %>
+  <% end  %>
+</div>
