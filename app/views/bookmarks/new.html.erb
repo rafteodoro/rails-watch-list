@@ -1,7 +1,7 @@
 <div class="container">
   <h5>New bookmark</h5>
   <%= simple_form_for([@list, @bookmark]) do |form|  %>
-    <%= form.text_area :comment %>
+    <%= form.input :comment %>
     <%= form.association :movie %>
     <%= link_to 'Back', list_path(@list), class:'btn btn-ghost' %>
     <%= form.button :submit, class:'btn btn-flat' %>
