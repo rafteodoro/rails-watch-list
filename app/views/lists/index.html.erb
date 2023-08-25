@@ -1,14 +1,14 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'banner.jpg'%>);">
   <div class="container">
     <h1 class="text-center">Save <strong>any</strong> kind of movies!</h1>
-    <p class="text-center">Classic Le Wagon 2023</p>
+    <p class="text-center"><%= link_to '<i class="fa-brands fa-github-alt fa-beat"></i> https://github.com/rafteodoro'.html_safe, "https://github.com/rafteodoro", :target => "_blank" %></p>
   </div>
 </div>
 <div class="container mt-3" style="">
   <h3>My lists</h3>
   <div class="cards">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path list.img_path %>);">
         <%= link_to list.name, list_path(list) %>
       </div>
     <% end %>

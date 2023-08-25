@@ -1,24 +1,25 @@
-<div class="container">
-  <h1><%= @list.name %></h1>
-  <h5>Bookmarks</h5>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Movie</th>
-        <th scope="col">Comment</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @list.bookmarks.each do |bookmark| %>
-        <tr>
-          <% movie = Movie.find(bookmark.movie_id)  %>
-          <td><%= movie.title %></td>
-          <td><%= bookmark.comment %></td>
-          <td><%= link_to 'Delete', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:'btn btn-danger btn-sm' %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= link_to 'New bookmark',  new_list_bookmark_path(@list), class:'btn btn-flat' %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path @list.img_path %>);">
+  <div class="container">
+    <h1 class="text-center"><%= @list.name %></h1>
+  </div>
+</div>
+<div class="container mt-3">
+  <div class="d-flex justify-content-end">
+    <%= link_to 'Add a movie',  new_list_bookmark_path(@list), class:'btn btn-flat' %>
+  </div>
+  <div class="row mt-3">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card m-1" style="width: 20rem;">
+        <%= image_tag bookmark.movie.poster_url, class: "card-img-top" %>
+        <div class="card-body">
+          <h6 class="card-title"><strong><%= bookmark.movie.title %></strong> ⭐<%= bookmark.movie.rating %></h6>
+          <p class="card-text"><%= bookmark.movie.overview %></p>
+          <div class="d-flex">
+            <div class="p-2 flex-grow-1"><i class="fa-solid fa-quote-left fa-xl"></i> <%= bookmark.comment %></div>
+            <div class="p-2"><%= link_to 'delete', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
