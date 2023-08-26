@@ -35,6 +35,9 @@ gem "sassc-rails"
 
 gem "dotenv-rails"
 
+#added image hosting
+gem "cloudinary"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
